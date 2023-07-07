@@ -5,7 +5,7 @@ import numpy as np
 
 api_url = "https://jsonplaceholder.typicode.com/posts"
 response = requests.get(api_url)
-
+st.set_page_config(layout="wide")
 st.title("Getting Started Streamlit")
 st.write("This is introduction to streamlit")
 
