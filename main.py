@@ -46,5 +46,5 @@ container = st.empty()
 with container:
     if show_import_data:
         response_df = pd.DataFrame(response.json())
-        st.dataframe(response_df,hide_index=True)
+        st.dataframe(response_df,hide_index=True,use_container_width=True)
 
