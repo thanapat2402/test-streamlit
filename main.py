@@ -1,5 +1,11 @@
 import streamlit as st
 import pandas as pd
+import requests
+import numpy as np
+import plotly.figure_factory as ff
+
+api_url = "https://jsonplaceholder.typicode.com/posts"
+response = requests.get(api_url)
 
 st.title("Getting Started Streamlit")
 st.write("This is introduction to streamlit")
@@ -13,7 +19,6 @@ def hello():
 show_btn = st.button("Show code!")
 if show_btn:
     st.code(code, language='python')
-
 
 cols = st.columns(2)
 with cols[0]:
@@ -36,3 +41,11 @@ st.dataframe(df)
 show_chart_btn = st.button("Show Chart!!")
 if show_chart_btn:
     st.line_chart(df, x='first column', y='second column')
+
+show_import_data = st.checkbox("Show imported data",key="sid")
+container = st.empty()
+with container:
+    if show_import_data:
+        response_df = pd.DataFrame(response.json())
+        st.dataframe(response_df,hide_index=True)
+
