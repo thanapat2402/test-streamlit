@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import requests
 import numpy as np
-import plotly.figure_factory as ff
 
 api_url = "https://jsonplaceholder.typicode.com/posts"
 response = requests.get(api_url)
